@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function palindromo() {
+        entrada = document.getElementById('palavra_input').value;
+        var modTeste = (entrada.length % 2)
+        var aux = [];
+
+        document.querySelector('.resposta').innerHTML = '';
+
+        //esquerda pra direita
+        for (let i = 0; i < entrada.length; i++) {
+            aux.push(entrada[i])
+        }
+
+        var entrada_invertido = [];
+        //direita pra esquerda
+        for (let i = entrada.length - 1; i > -1; i--) {
+            aux.push(entrada[i])
+            entrada_invertido.push(entrada[i])
+        }
+        
+        if (entrada == entrada_invertido.join('')) {
+            document.querySelector('.resposta').append('Palindromo');
+        } else {
+            document.querySelector('.resposta').append('não é Palindromo');
+        }
+    }
+</script>
+
+<body>
+    <input placeholder="Palavra" id="palavra_input" type="text">
+    <input type="button" class="btn" value="Checar" onclick="palindromo()">
+    <label>Resposta:</label>
+    <h2 class="resposta"></h2>
+</body>
+
+</html>
